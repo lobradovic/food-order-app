@@ -1,0 +1,853 @@
+/*@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);*/
+/*ovo iznad treba mozda da se izbaci pa da zamenimo sa obicnim css komponentama*/
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+
+
+:root {
+    --dark: #1c1c1c;
+    --white: #ffffff;
+    --signature: #c19977;
+    --item-text: #5a4a52;
+    --price: #a8763e;
+    --border: #e5e0da;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Cinzel', serif;
+    color: var(--dark);
+    background: var(--white);
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================
+   TOP BAR
+   ========================= */
+
+.topbar {
+    background: var(--dark);
+    color: #cfcfcf;
+    display: flex;
+    justify-content: space-between;
+    padding: .5em 2em;
+    font-size: .85rem;
+    letter-spacing: .05em;
+}
+
+/* =========================
+   NAVBAR
+   ========================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 2em;
+    border-bottom: 1px solid var(--border);
+}
+
+
+.logo-main {
+    width: 25%;
+    font-size: 1.8rem;
+    letter-spacing: .5em;
+}
+
+.logo-main img {
+    max-width: 100%;
+    max-height: 100%;
+
+    transition: all .3s ease
+}
+
+.logo-main img:hover
+{
+    filter: invert(68%) sepia(36%) saturate(355%) hue-rotate(346deg) brightness(87%) contrast(87%);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2em;
+    text-transform: uppercase;
+    font-size: .9rem;
+    letter-spacing: .1em;
+    width:80%;
+}
+
+.nav-links a {
+    color: var(--dark);
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--signature);
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+/* .hero {
+    background: linear-gradient(
+        135deg,
+        #1c1c1c 0%,
+        #5a493d 35%,
+        #9f7c60 70%,
+        #c19977 100%
+    );
+
+    color: var(--white);
+    text-align: center;
+    padding: 4em 1em;
+
+    box-shadow: 0 18px 35px rgba(28, 28, 28, 0.28);
+} */
+
+.hero {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(28, 28, 28, 0.96) 0%,
+            rgba(90, 73, 61, 0.93) 35%,
+            rgba(159, 124, 96, 0.93) 70%,
+            rgba(193, 153, 119, 0.93) 100%
+        ),
+        url('../../public/images/hero-image-blur.jpg');
+
+    background-size: cover;
+    background-position: center;
+
+    color: var(--white);
+    text-align: center;
+    padding: 4em 1em;
+
+    box-shadow: 0 18px 35px rgba(28, 28, 28, 0.28);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
+main {
+    flex: 1;
+}
+
+.page-content {
+    max-width: 80%;
+    margin: 3em auto;
+    min-height: 300px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.site-footer {
+    background: var(--dark);
+    color: #999;
+    text-align: center;
+    padding: 1.5em;
+    font-size: .85rem;
+}
+
+/* =========================
+   SECTION
+   ========================= */
+
+.section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--signature);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.6rem;
+
+    border-bottom: 1px solid var(--border);
+
+    padding-bottom: .3em;
+    margin-bottom: 1em;
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.dugme {
+    all: unset;
+
+    padding: .5em 1.2em;
+
+    border: 1px solid #bebebe;
+    color: var(--dark);
+
+    cursor: pointer;
+
+    font-family: inherit;
+    letter-spacing: .05em;
+
+    display: inline-block;
+
+    transition: all .25s ease;
+}
+
+.dugme:hover {
+    background: var(--signature);
+    color: var(--white);
+    border-color:var(--signature);
+}
+
+/* =========================
+   TABLE
+   ========================= */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    border: none;
+    padding: .6em .3em;
+    text-align: left;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.table thead {
+    border-bottom: 2px solid var(--signature);
+    color: var(--signature);
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.table td {
+    color: var(--item-text);
+}
+
+.price-cell {
+    color: var(--price);
+}
+
+/* =========================
+   MODAL
+   ========================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(28, 28, 28, 0.7);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 50;
+}
+
+.modal-box {
+    background: var(--white);
+    color: var(--dark);
+
+    border: 1px solid var(--border);
+
+    max-width: 400px;
+    width: 70%;
+    max-height: 85vh;
+
+    padding: 2.5em;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+.modal-box form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+/* =========================
+   MENU
+   ========================= */
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+
+    max-height: 40vh;
+    overflow-y: auto;
+
+    padding-right: .5em;
+}
+
+.menuItem {
+    border: 1px solid var(--border);
+
+    width: 100%;
+    max-width: 320px;
+
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: .5em;
+}
+.menuItem p
+{
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+}
+.razdvoj {
+    margin-bottom: 2em;
+}
+
+/* =========================
+   BADGES
+   ========================= */
+
+.cart-badge {
+    background: var(--signature);
+    color: var(--white);
+
+    border-radius: 50%;
+
+    font-size: .7rem;
+
+    padding: .1em .5em;
+    margin-left: .3em;
+}
+
+.badge {
+    font-size: .7rem;
+    padding: .2em .6em;
+
+    border-radius: 3px;
+
+    letter-spacing: .03em;
+    white-space: nowrap;
+}
+
+.badge-stalna {
+    background: var(--border);
+    color: var(--dark);
+}
+
+.badge-dnevna {
+    background: var(--price);
+    color: var(--white);
+}
+
+/* =========================
+   STICKY CART
+   ========================= */
+
+.sticky-cart-btn {
+    position: fixed;
+
+    bottom: 1.5em;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: auto;
+    min-width: 240px;
+
+    z-index: 40;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .3);
+}
+
+/* =========================
+   FORMS
+   ========================= */
+
+label,
+button {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+input,
+textarea,
+select {
+    height: 2em;
+
+    font-family: 'Cormorant Garamond', serif;
+
+    border: 1px solid #bebebe;
+}
+
+textarea {
+    resize: none;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+label
+{
+  font-style: italic;
+}
+
+/* =========================
+   AUTH
+   ========================= */
+
+.auth-page {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+
+        overflow: hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(193, 153, 119, 0.96) 0%,
+            rgba(157, 116, 84, 0.95) 28%,
+            rgba(105, 75, 55, 0.96) 55%,
+            rgba(63, 43, 32, 0.97) 80%,
+            rgba(42, 30, 24, 0.98) 100%
+        ),
+        url('../../public/images/hero-image-blur.jpg') center / cover no-repeat;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 25%;
+    padding:2em 1em;
+
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35),
+        0 8px 20px rgba(0, 0, 0, 0.18);
+}
+.auth-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1em;
+
+    margin-bottom: 2em;
+
+    text-align: center;
+}
+.auth-logo-link {
+    color: var(--dark);
+    text-decoration: none;
+
+    display: flex;
+    justify-content: center;
+}
+
+.auth-logo {
+    max-width: 70%;
+    max-height: 70%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:2em 1em;
+}
+
+.auth-logo-icon {
+
+    fill: currentColor;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.auth-title {
+    margin: 0;
+
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+
+    color: var(--dark);
+}
+
+.auth-description {
+    margin: .5em 0 0;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+
+    color: var(--item-text);
+}
+
+.login-form {
+    width: 100%;
+}
+
+.login-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4em;
+}
+
+.login-field {
+    display: flex;
+    flex-direction: column;
+    gap: .45em;
+}
+
+.login-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--dark);
+    display: flex;
+    justify-content: flex-start;
+}
+
+.login-input {
+    width: 100%;
+    height: 2.6em;
+
+    box-sizing: border-box;
+
+    padding: .45em .7em;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+
+    color: var(--dark);
+    background: var(--white);
+
+    border: 1px solid #bebebe;
+    border-radius: 0;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.login-input:focus {
+    border-color: var(--signature);
+
+    box-shadow: 0 0 0 1px var(--signature);
+}
+
+.login-input::placeholder {
+    color: #aaa;
+}
+
+.login-password-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-forgot {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .95rem;
+    color: var(--signature);
+    text-decoration: none;
+}
+
+.login-forgot:hover {
+    text-decoration: underline;
+}
+
+.login-error {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .9rem;
+    color: #a33;
+}
+
+.login-remember {
+    display: flex;
+    align-items: center;
+}
+
+.login-remember-label {
+    display: flex;
+    align-items: center;
+    gap: .6em;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-style: normal;
+
+    cursor: pointer;
+}
+
+.login-button {
+    width: 100%;
+
+    min-height: 2.7em;
+
+    margin-top: .5em;
+    padding: .5em 1.2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+
+    border: 1px solid var(--signature);
+    border-radius: 0;
+
+    background: var(--signature);
+    color: var(--white);
+
+    font-family: 'Cinzel', serif;
+    font-size: .9rem;
+    letter-spacing: .08em;
+
+    cursor: pointer;
+
+    transition: all .25s ease;
+}
+
+.login-button:hover:not(:disabled) {
+    background: var(--dark);
+    border-color: var(--dark);
+}
+
+.login-button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+.login-register {
+    margin-top: 1.5em;
+
+    text-align: center;
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+
+    color: var(--item-text);
+}
+
+.login-register-link {
+    margin-left: .3em;
+
+    color: var(--signature);
+    text-decoration: none;
+}
+
+.login-register-link:hover {
+    text-decoration: underline;
+}
+
+.login-status {
+    margin-bottom: 1.5em;
+
+    padding: .7em 1em;
+
+    border: 1px solid var(--signature);
+
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    text-align: center;
+
+    color: var(--signature);
+    background: rgba(193, 153, 119, .08);
+}
+
+.pass-input
+{
+    display:flex;
+    gap:0.5em
+}
+
+.pass-input button
+{
+    padding:0.54em;
+    background-color: #fff;
+    border:1px solid #bebebe;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    height: 100%;
+    transition:0.3s ease;
+}
+
+.pass-input button:hover
+{
+    background-color: #c19977;
+    color: #fff;
+    fill: #fff;
+}
+
+
+.login-remember-label {
+    display: flex !important;
+    align-items: center !important;
+    gap: .6em !important;
+
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1rem !important;
+    font-style: normal;
+
+    color: var(--dark) !important;
+
+    cursor: pointer;
+}
+
+/* checkbox */
+
+.login-remember input[type="checkbox"] {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+
+    width: 18px !important;
+    height: 18px !important;
+
+    min-width: 18px !important;
+    min-height: 18px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    border: 1px solid #bebebe !important;
+    border-radius: 0 !important;
+
+    background: var(--white) !important;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition: all .2s ease;
+}
+
+.login-remember input[type="checkbox"]:checked {
+    background: var(--signature) !important;
+    border-color: var(--signature) !important;
+}
+
+.login-remember input[type="checkbox"]:checked::after {
+    content: "✓";
+
+    color: var(--white);
+
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    line-height: 1;
+}
+
+.login-remember input[type="checkbox"]:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(193, 153, 119, .25) !important;
+}
+
+.page-content
+{
+    min-height: 48vh;
+}
+
+.footer-main
+{
+    display:flex;
+    padding:1em 10em;
+}
+
+.foot-col .nav-links
+{
+    flex-direction: column;
+    gap:1em;
+    justify-content: flex-start;
+    align-items: start;
+
+}
+.foot-col a
+{
+    color:#fff;
+    font-size:small;
+}
+
+.pdf-options
+{
+    display:flex;
+    justify-content: flex-end;
+    gap:0.5em;
+}
+
+.button-alt{
+    text-decoration: none;
+    border:1px solid #bebebe;
+    font-family: 'Cormorant Garamond',serif;
+    color:#1c1c1c;
+    padding: 0.5em 1em;
+    width:10%;
+    align-items: center;
+    text-align: center;
+
+    transition: all .3s ease;
+}
+
+.button-alt:hover
+{
+    color:#c19977;
+    border-color: #c19977;
+}
+
+
+@media (max-width: 480px) {
+
+    .topbar
+    {
+        display: none;
+    }
+    .navbar
+    {
+        flex-direction: column;
+    }
+    .navbar div
+    {
+        display: flex;
+        justify-content: center;
+        
+    }
+    .logo-main
+    {
+        width:80%;
+    }
+}
